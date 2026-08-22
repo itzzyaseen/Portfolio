@@ -13,7 +13,7 @@ import os
 import yfinance as yf
 import pandas as pd
 
-TICKERS = ["AAPL", "MSFT", "GOOGL", "AMZN"]   # <-- change to the tickers you want
+TICKERS = ["AAPL", "MSFT", "NVDA", "AMZN"]   # real market tickers
 START, END = "2023-01-01", "2024-12-31"
 
 frames = []

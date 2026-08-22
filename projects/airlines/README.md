@@ -3,14 +3,13 @@
 End-to-end BI build: clean a large flights table in SQL, then expose what actually drives
 arrival delays — carrier, departure hour and route.
 
-**[▶ Open the live dashboard](dashboard/index.html)**
+**[▶ Open the dashboard](dashboard/index.html)**
 
 ## Problem
-Delays were treated as random. Slicing a cleaned flights table by carrier, hour and route shows
-they aren't — evening departures and specific carriers drive most of them.
+**Business case:** Identify which operating factors are associated with arrival delays. The analysis compares carrier and departure-hour patterns in a cleaned flight sample.
 
 ## Data (`/data`)
-> Synthetic sample of 15,000 flights (representative of a larger source). Swap in your real extract.
+> Synthetic case-study sample of 15,000 flights. No client data is included.
 
 | File | Rows | Key columns |
 |---|---|---|

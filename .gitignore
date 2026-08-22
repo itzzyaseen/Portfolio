@@ -8,3 +8,6 @@ Thumbs.db
 # Vercel local
 .vercel
 node_modules/
+
+# Local project archives
+*.zip

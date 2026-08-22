@@ -1,16 +1,15 @@
 # Vendor Performance Analysis
 
-End-to-end BI build: score every supplier on a weighted model, then rank them so procurement
-can act on evidence instead of gut feel.
+End-to-end BI build: score every supplier on a weighted model, then rank them so procurement can compare suppliers consistently.
 
-**[▶ Open the live dashboard](dashboard/index.html)**
+**[▶ Open the dashboard](dashboard/index.html)**
 
 ## Problem
-Procurement had no objective way to compare vendors. This scores each on
+**Business case:** Procurement needs a consistent way to compare suppliers. This case study scores each on
 **50% delivery reliability + 35% quality + 15% cost efficiency** and produces a ranked scorecard.
 
 ## Data (`/data`)
-> Synthetic sample data. Swap in your real extract.
+> Synthetic case-study data. No client data is included.
 
 | File | Rows | Key columns |
 |---|---|---|

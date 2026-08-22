@@ -3,14 +3,13 @@
 End-to-end BI build: prepare time-series features in SQL, then forecast the next 30 days with a
 95% confidence band.
 
-**[▶ Open the live dashboard](dashboard/index.html)**
+**[▶ Open the dashboard](dashboard/index.html)**
 
 ## Problem
-Price history in a flat table tells you nothing about likely direction. This turns it into a
-readable forecast with an uncertainty band that widens with horizon.
+**Business case:** A price history table is difficult to interpret as a forward-looking view. This case study turns time-series data into a readable forecast with an uncertainty band.
 
 ## Data (`/data`)
-> Synthetic prices (geometric Brownian motion) for 4 tickers over 2023–2024.
+> Illustrative case-study prices for four real market tickers over a 2023–2024-style period. The committed dashboard data is synthetic; the included fetch script can replace it with real historical data.
 > To load **real** data, run `fetch_real_data.py` (see below).
 
 | File | Rows | Key columns |

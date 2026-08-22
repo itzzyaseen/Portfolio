@@ -37,17 +37,8 @@
     -webkit-font-smoothing:antialiased;
     overflow-x:hidden;
   }
-  /* graph-paper backdrop */
-  body::before{
-    content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
-    background-image:
-      linear-gradient(var(--line) 1px,transparent 1px),
-      linear-gradient(90deg,var(--line) 1px,transparent 1px);
-    background-size:var(--grid) var(--grid);
-    -webkit-mask-image:radial-gradient(ellipse 120% 90% at 50% 0%,#000 40%,transparent 100%);
-            mask-image:radial-gradient(ellipse 120% 90% at 50% 0%,#000 40%,transparent 100%);
-    opacity:.9;
-  }
+  /* Keep the homepage quiet so the content carries the visual weight. */
+  body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(circle at 85% 5%,#1b6b5408,transparent 32%);}
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;position:relative;z-index:1}
   a{color:inherit;text-decoration:none}
   .mono{font-family:"JetBrains Mono",monospace}
@@ -253,10 +244,12 @@
   <div class="wrap nav-in">
     <a class="brand" href="#top"><span class="dot"></span>M. Yaseen Jakati</a>
     <nav class="nav-links">
-      <a href="#work">Work</a>
+      <a href="#work">Projects</a>
+      <a href="#capabilities">What I do</a>
       <a href="#skills">Skills</a>
       <a href="#experience">Experience</a>
-      <a href="#contact" class="nav-cta">Get in touch</a>
+      <a href="https://www.linkedin.com/in/itzzyaseen" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a href="#contact" class="nav-cta">Contact</a>
     </nav>
   </div>
 </header>
@@ -267,36 +260,37 @@
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
-        <span class="avail"><span class="pulse"></span> Open to Data Analyst / BI roles</span>
-        <h1>Turning messy data into dashboards teams <span class="accent">actually use.</span></h1>
-        <p class="role">Data Analyst · <b>Power BI</b> · <b>DOMO</b> · <b>SQL</b> · Business Intelligence</p>
-        <p class="lead">I build the full pipeline — from raw SQL to polished, self-service dashboards — so decisions run on numbers people trust. 4+ years, dozens of dashboards, four end-to-end projects below.</p>
+        <span class="avail"><span class="pulse"></span> Open to Data Analyst / BI opportunities</span>
+        <h1>Mohammed Yaseen <span class="accent">Jakati</span></h1>
+        <p class="role">Data Analyst · <b>SQL</b> · <b>Power BI</b> · <b>DOMO</b> · Business Intelligence</p>
+        <p class="lead">Data Analyst with 4+ years of experience building SQL reporting, Power BI dashboards and DOMO analytics for operational and client-facing reporting. My focus is turning messy data into reliable metrics, clear models and useful dashboards.</p>
+        <p class="mono" style="margin-top:16px;font-size:12px;color:var(--ink-soft)">Bengaluru, India · Insurance analytics · Reporting &amp; BI</p>
         <div class="hero-cta">
-          <a href="#work" class="btn btn-primary">View case studies →</a>
-          <a href="#contact" class="btn btn-ghost">Contact me</a>
+          <a href="#work" class="btn btn-primary">View projects →</a>
+          <a href="https://www.linkedin.com/in/itzzyaseen" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn ↗</a>
         </div>
       </div>
 
       <!-- live-ish dashboard -->
       <div class="dash" aria-hidden="true">
         <div class="dash-top">
-          <span class="dash-title">Executive Overview · Live</span>
+          <span class="dash-title">BI reporting snapshot</span>
           <span class="dash-dots"><i></i><i></i><i></i></span>
         </div>
         <div class="kpi-row">
           <div class="kpi">
-            <div class="lab">Revenue YTD</div>
-            <div class="val" data-count="4.82" data-prefix="$" data-suffix="M" data-dec="2">$0.00M</div>
-            <div class="delta">▲ 18.4% vs LY</div>
+            <div class="lab">Core stack</div>
+            <div class="val" style="font-size:22px">SQL + BI</div>
+            <div class="delta">T-SQL · Power BI · DOMO</div>
           </div>
           <div class="kpi">
-            <div class="lab">Report Accuracy</div>
-            <div class="val" data-count="99.6" data-suffix="%" data-dec="1">0%</div>
-            <div class="delta">▲ 3.1 pts</div>
+            <div class="lab">Experience</div>
+            <div class="val" data-count="4" data-suffix="+" data-dec="0">0+</div>
+            <div class="delta">years in analytics</div>
           </div>
         </div>
         <div class="chart-box">
-          <div class="lab"><span>Quarterly performance</span><span>FY-26</span></div>
+          <div class="lab"><span>Typical reporting workflow</span><span>SQL → BI</span></div>
           <div class="bars">
             <div class="bar" data-h="42"></div>
             <div class="bar" data-h="58"></div>
@@ -314,9 +308,9 @@
   <div class="strip">
     <div class="wrap strip-in">
       <div class="stat reveal"><div class="n" data-count="4" data-suffix="+">0+</div><div class="c">Years in BI</div></div>
-      <div class="stat reveal"><div class="n" data-count="4">0</div><div class="c">Domains shipped</div></div>
-      <div class="stat reveal"><div class="n"><span data-count="40" data-suffix="%">0%</span></div><div class="c">Faster dashboards</div></div>
-      <div class="stat reveal"><div class="n" data-count="5" data-suffix="h/wk">0</div><div class="c">Manual work removed</div></div>
+      <div class="stat reveal"><div class="n" data-count="4">0</div><div class="c">BI case studies</div></div>
+      <div class="stat reveal"><div class="n"><span data-count="30" data-suffix="–40%">0–40%</span></div><div class="c">Dashboard load improvement</div></div>
+      <div class="stat reveal"><div class="n" data-count="5" data-suffix="h/wk">0</div><div class="c">Reporting time saved</div></div>
     </div>
   </div>
 
@@ -325,8 +319,8 @@
     <div class="wrap">
       <div class="sec-head reveal">
         <span class="eyebrow">// Case studies</span>
-        <h2>Four end-to-end builds across supply chain, procurement, finance and aviation.</h2>
-        <p>Each project runs the whole route — raw data cleaned and modelled in SQL, then surfaced as an interactive Power BI dashboard. No hand-offs between teams.</p>
+        <h2>Selected analytics case studies.</h2>
+        <p>Each project shows the business question, data preparation, analytical approach and dashboard output. The datasets are synthetic case-study data, so the methods can be reproduced without exposing client information.</p>
       </div>
 
       <div class="proj-grid">
@@ -335,7 +329,7 @@
         <article class="card reveal">
           <div class="card-top"><span class="domain">Supply Chain</span><span class="pid">CS-01</span></div>
           <h3>Supply Chain Performance &amp; Inventory Analytics</h3>
-          <p class="desc">Orders, inventory and shipments lived in separate systems, so no one could see where the chain was slipping. I unified them into a single operations dashboard tracking OTIF, turnover and stockouts.</p>
+          <p class="desc"><b>Business question:</b> How can operations teams monitor delivery reliability and inventory risk in one view? I modelled orders, products, suppliers and inventory snapshots and built an OTIF, turnover and stockout dashboard.</p>
           <div class="flow"><b>SQL Server</b> <span class="arw">→</span> ETL · Data Modeling <span class="arw">→</span> <b>Power BI</b></div>
           <div class="viz">
             <svg viewBox="0 0 260 76" role="img" aria-label="On-time-in-full by month with target line">
@@ -353,13 +347,13 @@
             </svg>
           </div>
           <div class="metrics">
-            <div class="metric"><div class="m-n pos">96%</div><div class="m-c">OTIF rate</div></div>
-            <div class="metric"><div class="m-n">−18%</div><div class="m-c">stockouts</div></div>
-            <div class="metric"><div class="m-n">Auto</div><div class="m-c">reorder flags</div></div>
+            <div class="metric"><div class="m-n pos">96.1%</div><div class="m-c">OTIF in sample</div></div>
+            <div class="metric"><div class="m-n">2,093</div><div class="m-c">orders</div></div>
+            <div class="metric"><div class="m-n">198</div><div class="m-c">stockout flags</div></div>
           </div>
           <div class="card-links">
-            <a class="card-cta" href="projects/supply-chain/dashboard/index.html">View live dashboard →</a>
-            <a class="card-gh" href="https://github.com/itzzyaseen/Portfolio/tree/main/projects/supply-chain" target="_blank" rel="noopener">Data &amp; SQL ↗</a>
+            <a class="card-cta" href="projects/supply-chain/dashboard/index.html">Open dashboard →</a>
+            <a class="card-gh" href="https://github.com/itzzyaseen/Portfolio/tree/main/projects/supply-chain" target="_blank" rel="noopener">GitHub · SQL + DAX ↗</a>
           </div>
           <div class="stack"><span class="t">SQL Server</span><span class="t">ETL</span><span class="t">Data Modeling</span><span class="t">DAX</span><span class="t">KPI Cards</span></div>
         </article>
@@ -368,7 +362,7 @@
         <article class="card reveal">
           <div class="card-top"><span class="domain">Procurement</span><span class="pid">CS-02</span></div>
           <h3>Vendor Performance Analysis</h3>
-          <p class="desc">Procurement was picking vendors on gut feel. I scored every supplier on delivery, quality and cost in SQL, then built a ranked scorecard so the team could renegotiate or drop the weak ones with evidence.</p>
+          <p class="desc"><b>Business question:</b> How can procurement compare suppliers consistently? I created a weighted score using delivery reliability, quality and cost, then ranked vendors and surfaced suppliers needing review.</p>
           <div class="flow"><b>SQL</b> <span class="arw">→</span> Weighted scoring · CTEs <span class="arw">→</span> <b>Power BI</b></div>
           <div class="viz">
             <svg viewBox="0 0 260 76" preserveAspectRatio="none" role="img" aria-label="Vendor score ranking bars">
@@ -382,13 +376,13 @@
             </svg>
           </div>
           <div class="metrics">
-            <div class="metric"><div class="m-n">120+</div><div class="m-c">vendors scored</div></div>
-            <div class="metric"><div class="m-n pos">3-factor</div><div class="m-c">weighted score</div></div>
-            <div class="metric"><div class="m-n">Quarterly</div><div class="m-c">scorecard</div></div>
+            <div class="metric"><div class="m-n">120</div><div class="m-c">vendors</div></div>
+            <div class="metric"><div class="m-n pos">50/35/15</div><div class="m-c">weighted model</div></div>
+            <div class="metric"><div class="m-n">3,481</div><div class="m-c">purchase orders</div></div>
           </div>
           <div class="card-links">
-            <a class="card-cta" href="projects/vendor-performance/dashboard/index.html">View live dashboard →</a>
-            <a class="card-gh" href="https://github.com/itzzyaseen/Portfolio/tree/main/projects/vendor-performance" target="_blank" rel="noopener">Data &amp; SQL ↗</a>
+            <a class="card-cta" href="projects/vendor-performance/dashboard/index.html">Open dashboard →</a>
+            <a class="card-gh" href="https://github.com/itzzyaseen/Portfolio/tree/main/projects/vendor-performance" target="_blank" rel="noopener">GitHub · SQL + DAX ↗</a>
           </div>
           <div class="stack"><span class="t">SQL</span><span class="t">CTEs</span><span class="t">RANK()</span><span class="t">DAX Measures</span><span class="t">Power Query</span></div>
         </article>
@@ -397,7 +391,7 @@
         <article class="card reveal">
           <div class="card-top"><span class="domain">Finance · Forecasting</span><span class="pid">CS-03</span></div>
           <h3>Stock Forecasting Application</h3>
-          <p class="desc">Built an interactive dashboard that pulls historical price and volume, then projects the next periods with a confidence band — so trends and likely direction are readable at a glance instead of buried in a table.</p>
+          <p class="desc"><b>Business question:</b> How should a time-series forecast communicate both direction and uncertainty? I prepared daily price data in SQL and built an interactive 30-day exponential-smoothing forecast with a 95% confidence band.</p>
           <div class="flow"><b>SQL</b> <span class="arw">→</span> Time-series prep <span class="arw">→</span> <b>Power BI Forecast</b></div>
           <div class="viz">
             <svg viewBox="0 0 260 76" role="img" aria-label="Stock price actual and forecast line">
@@ -411,13 +405,13 @@
             </svg>
           </div>
           <div class="metrics">
-            <div class="metric"><div class="m-n">Multi</div><div class="m-c">tickers tracked</div></div>
-            <div class="metric"><div class="m-n pos">90-day</div><div class="m-c">forecast horizon</div></div>
+            <div class="metric"><div class="m-n">4</div><div class="m-c">tickers</div></div>
+            <div class="metric"><div class="m-n pos">30-day</div><div class="m-c">forecast horizon</div></div>
             <div class="metric"><div class="m-n">95%</div><div class="m-c">confidence band</div></div>
           </div>
           <div class="card-links">
-            <a class="card-cta" href="projects/stock-forecasting/dashboard/index.html">View live dashboard →</a>
-            <a class="card-gh" href="https://github.com/itzzyaseen/Portfolio/tree/main/projects/stock-forecasting" target="_blank" rel="noopener">Data &amp; SQL ↗</a>
+            <a class="card-cta" href="projects/stock-forecasting/dashboard/index.html">Open dashboard →</a>
+            <a class="card-gh" href="https://github.com/itzzyaseen/Portfolio/tree/main/projects/stock-forecasting" target="_blank" rel="noopener">GitHub · SQL + DAX ↗</a>
           </div>
           <div class="stack"><span class="t">SQL</span><span class="t">Time Intelligence</span><span class="t">Power BI Forecast</span><span class="t">DAX</span><span class="t">Slicers</span></div>
         </article>
@@ -426,7 +420,7 @@
         <article class="card reveal">
           <div class="card-top"><span class="domain">Aviation</span><span class="pid">CS-04</span></div>
           <h3>Airlines Data Analysis Project</h3>
-          <p class="desc">Analysed a large flights dataset to expose what really drives delays — carrier, route, time of day and season. Cleaned millions of rows in SQL and turned them into an on-time performance dashboard.</p>
+          <p class="desc"><b>Business question:</b> Which operating factors are most associated with arrival delays? I cleaned a 15,000-flight sample in SQL and analysed delay patterns by carrier and departure hour in an interactive dashboard.</p>
           <div class="flow"><b>SQL</b> <span class="arw">→</span> Cleaning · Aggregation <span class="arw">→</span> <b>Power BI</b></div>
           <div class="viz">
             <svg viewBox="0 0 260 76" role="img" aria-label="Flight status donut">
@@ -447,17 +441,33 @@
             </svg>
           </div>
           <div class="metrics">
-            <div class="metric"><div class="m-n">1M+</div><div class="m-c">rows analysed</div></div>
-            <div class="metric"><div class="m-n pos">Delay</div><div class="m-c">driver analysis</div></div>
-            <div class="metric"><div class="m-n">Route</div><div class="m-c">&amp; carrier drill</div></div>
+            <div class="metric"><div class="m-n">15,000</div><div class="m-c">flight records</div></div>
+            <div class="metric"><div class="m-n pos">70.0%</div><div class="m-c">on-time in sample</div></div>
+            <div class="metric"><div class="m-n">144</div><div class="m-c">routes</div></div>
           </div>
           <div class="card-links">
-            <a class="card-cta" href="projects/airlines/dashboard/index.html">View live dashboard →</a>
-            <a class="card-gh" href="https://github.com/itzzyaseen/Portfolio/tree/main/projects/airlines" target="_blank" rel="noopener">Data &amp; SQL ↗</a>
+            <a class="card-cta" href="projects/airlines/dashboard/index.html">Open dashboard →</a>
+            <a class="card-gh" href="https://github.com/itzzyaseen/Portfolio/tree/main/projects/airlines" target="_blank" rel="noopener">GitHub · SQL + DAX ↗</a>
           </div>
           <div class="stack"><span class="t">SQL</span><span class="t">Data Cleaning</span><span class="t">Aggregation</span><span class="t">Power BI</span><span class="t">Drill-through</span></div>
         </article>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT I DO -->
+  <section id="capabilities" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">// What I bring</span>
+        <h2>Useful across the reporting lifecycle.</h2>
+      </div>
+      <div class="proj-grid">
+        <div class="card reveal"><h3>Reporting &amp; BI</h3><p class="desc">Build operational and management dashboards in Power BI and DOMO, from KPI definition through publishing and refresh.</p></div>
+        <div class="card reveal"><h3>SQL &amp; Data</h3><p class="desc">Transform, validate and analyse relational data using T-SQL, CTEs, window functions, views and stored procedures.</p></div>
+        <div class="card reveal"><h3>Automation</h3><p class="desc">Reduce repetitive reporting with reusable SQL logic, ETL workflows and Python where it adds practical value.</p></div>
+        <div class="card reveal"><h3>Data Quality</h3><p class="desc">Reconcile source data, investigate discrepancies and make reporting logic consistent enough for stakeholders to trust.</p></div>
       </div>
     </div>
   </section>
@@ -467,8 +477,8 @@
     <div class="wrap">
       <div class="sec-head reveal">
         <span class="eyebrow">// Toolkit</span>
-        <h2>The stack behind every build.</h2>
-        <p>Comfortable across the full BI workflow — and fluent in both Power BI and DOMO, so I can plug into whatever a team already runs.</p>
+        <h2>Tools I use in production and in case studies.</h2>
+        <p>My strongest areas are SQL, Power BI and DOMO, with supporting experience across data modelling, ETL, Python and reporting workflows.</p>
       </div>
       <div class="spec reveal">
         <div class="spec-row"><div class="k"><span class="idx">01</span>SQL &amp; Databases</div>
@@ -476,9 +486,9 @@
         <div class="spec-row"><div class="k"><span class="idx">02</span>Visualization</div>
           <div class="v"><span class="chip">Power BI</span><span class="chip">DOMO</span><span class="chip">DAX</span><span class="chip">Power Query (M)</span><span class="chip">Beast Mode</span><span class="chip">App Studio</span><span class="chip">KPI Reporting</span><span class="chip">Custom Cards</span></div></div>
         <div class="spec-row"><div class="k"><span class="idx">03</span>ETL &amp; Analytics</div>
-          <div class="v"><span class="chip">ETL Pipelines</span><span class="chip">Data Wrangling</span><span class="chip">Ad-hoc Reporting</span><span class="chip">Trend Analysis</span><span class="chip">Forecasting</span><span class="chip">Data Governance</span></div></div>
-        <div class="spec-row"><div class="k"><span class="idx">04</span>Tools</div>
-          <div class="v"><span class="chip">Excel · Pivot / Power Query</span><span class="chip">Power BI Service</span><span class="chip">DOMO Workbench</span><span class="chip">SSMS</span><span class="chip">Git</span></div></div>
+          <div class="v"><span class="chip">ETL Pipelines</span><span class="chip">SSIS</span><span class="chip">Data Wrangling</span><span class="chip">Data Validation</span><span class="chip">Trend Analysis</span><span class="chip">Forecasting</span><span class="chip">Data Governance</span></div></div>
+        <div class="spec-row"><div class="k"><span class="idx">04</span>Programming &amp; Tools</div>
+          <div class="v"><span class="chip">Python</span><span class="chip">Pandas</span><span class="chip">Excel</span><span class="chip">Power BI Service</span><span class="chip">DOMO Workbench</span><span class="chip">SSMS</span><span class="chip">Git</span></div></div>
       </div>
     </div>
   </section>
@@ -488,7 +498,7 @@
     <div class="wrap">
       <div class="sec-head reveal">
         <span class="eyebrow">// Track record</span>
-        <h2>Where the work happened.</h2>
+        <h2>Professional experience.</h2>
       </div>
       <div class="tl reveal">
         <div class="tl-item">
@@ -497,10 +507,10 @@
           <div class="tl-org">Elpis Systems · Bengaluru, KA</div>
           <div class="tl-body">
             <ul>
-              <li>Designed interactive Power BI dashboards for executive KPIs, performance trends and client reporting across multiple accounts.</li>
-              <li>Built data models, relationships and DAX (measures &amp; time-intelligence) and cut dashboard load times by <b>30–40%</b> through query folding and DAX tuning.</li>
+              <li>Built Power BI and DOMO dashboards for operational KPIs, performance trends and client reporting across insurance analytics workflows.</li>
+              <li>Built data models, relationships and DAX measures; improved dashboard performance by <b>30–40%</b> through query and model tuning.</li>
               <li>Wrote and optimised complex T-SQL daily — joins, subqueries, CTEs and window functions over large relational datasets.</li>
-              <li>Developed reusable stored procedures and views that removed roughly <b>5 hours of manual reporting per week</b>.</li>
+              <li>Developed reusable stored procedures and views that reduced roughly <b>5 hours of manual reporting work per week</b>.</li>
               <li>Built custom DOMO dashboards with Beast Mode metrics and App Studio layouts for polished, client-facing self-service reporting.</li>
               <li>Managed Power BI Service workspaces — refresh schedules, permissions and governance.</li>
             </ul>
@@ -551,22 +561,12 @@
     <div class="wrap">
       <div class="contact reveal">
         <span class="eyebrow" style="color:#8fd4bf">// Let's talk data</span>
-        <h2>Got messy data that should be a dashboard?</h2>
-        <p>I'm open to Data Analyst and BI roles. Whether you run Power BI or DOMO, I can plug in without a steep ramp-up and start shipping reliable, accurate reporting.</p>
-        <!--
-          ┌─────────────────────────────────────────────────────────────────┐
-          │  ADD YOUR CONTACT DETAILS HERE                                    │
-          │  Replace the two "updating soon" lines below with these, filling  │
-          │  in your real email and phone, then commit + push (auto-deploys): │
-          │                                                                   │
-          │  <a class="cc primary" href="mailto:you@example.com">✉ you@example.com</a> │
-          │  <a class="cc" href="tel:+910000000000">📞 +91 00000 00000</a>     │
-          └─────────────────────────────────────────────────────────────────┘
-        -->
+        <h2>Open to the right Data Analyst or BI role.</h2>
+        <p>I'm interested in roles where I can work with SQL, Power BI, DOMO and business reporting. If you're hiring for Data Analyst, BI Analyst or SQL-focused roles, I'd be happy to connect.</p>
         <div class="cc-row">
-          <span class="cc">✉ Email — updating soon</span>
-          <span class="cc">📞 Phone — updating soon</span>
-          <span class="cc">📍 Bengaluru, Karnataka</span>
+          <a class="cc primary" href="https://www.linkedin.com/in/itzzyaseen" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a class="cc" href="https://github.com/itzzyaseen/Portfolio" target="_blank" rel="noopener">GitHub ↗</a>
+          <span class="cc">📍 Bengaluru, India</span>
         </div>
       </div>
     </div>
@@ -577,7 +577,7 @@
 <footer>
   <div class="wrap f-in">
     <span>© 2026 Mohammed Yaseen Jakati</span>
-    <span>Built end-to-end · SQL → Power BI / DOMO</span>
+    <span>Data Analyst · SQL · Power BI · DOMO</span>
   </div>
 </footer>
 

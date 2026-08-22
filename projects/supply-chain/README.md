@@ -3,14 +3,14 @@
 End-to-end BI build: raw operational data in SQL → data model → interactive dashboard tracking
 **OTIF (On-Time-In-Full)**, inventory turnover and stockout risk.
 
-**[▶ Open the live dashboard](dashboard/index.html)**
+**[▶ Open the dashboard](dashboard/index.html)**
 
 ## Problem
 Orders, inventory and shipments lived in separate systems, so no one could see where the chain
 was slipping until it cost a sale. This unifies them into one operations view.
 
 ## Data (`/data`)
-> Synthetic sample data modelled on realistic distributions. Swap in your real extract.
+> Synthetic case-study data modelled on realistic distributions. No client data is included.
 
 | File | Rows | Key columns |
 |---|---|---|
