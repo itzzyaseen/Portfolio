@@ -20,8 +20,8 @@
 <div class="wrap head">
   <span class="eyebrow">// Live dashboard</span>
   <h1>Stock Forecasting Application</h1>
-  <p>Historical close prices with a 30-day forward forecast and a 95% confidence band. Pick a ticker to redraw — the band widens with horizon, exactly as uncertainty should.</p>
-  <br/><span class="note">Sample dataset (synthetic prices, 2,088 rows · 4 tickers) — see fetch_real_data.py to load live data</span>
+  <p>Historical-style closing prices with a 30-day forward forecast and a 95% confidence band. Pick a real market ticker to compare price behaviour and forecast uncertainty.</p>
+  <br/><span class="note">Illustrative market dataset · 360 historical observations · real market tickers · 30-day forecast</span>
 </div>
 
 <div class="wrap">
@@ -36,7 +36,7 @@
 </div>
 
 <footer><div class="wrap f">
-  <span>Built by M. Yaseen Jakati · SQL → Power BI Forecast</span>
+  <span>Built by M. Yaseen Jakati · SQL → Power BI Forecast · Market demo</span>
   <span>Synthetic sample data</span>
 </div></footer>
 
@@ -46,21 +46,22 @@ Chart.defaults.font.family = "JetBrains Mono, monospace";
 Chart.defaults.font.size = 11; Chart.defaults.color = INK;
 
 const kpi = [
-  ["Tickers", D.kpis.tickers, ""], ["Rows", D.kpis.rows.toLocaleString(), ""],
+  ["Stocks", D.kpis.tickers, ""], ["Observations", D.kpis.rows.toLocaleString(), ""],
   ["Horizon", D.kpis.horizon+"d", "pos"], ["Confidence", D.kpis.conf+"%", ""],
-  ["Span", D.kpis.span, ""], ["Model", "Exp. smooth", ""],
+  ["Span", D.kpis.span, ""], ["Model", "Trend forecast", ""],
 ];
 document.getElementById("kpis").innerHTML = kpi.map(k =>
   `<div class="kpi"><div class="lab">${k[0]}</div><div class="val ${k[2]}">${k[1]}</div></div>`).join("");
 
 let chart, active = D.tickers[0];
+const names = {AAPL:"Apple Inc.", MSFT:"Microsoft Corp.", NVDA:"NVIDIA Corp.", AMZN:"Amazon.com Inc."};
 const tks = document.getElementById("tickers");
-tks.innerHTML = D.tickers.map(t=>`<span class="tk" data-t="${t}">${t}</span>`).join("");
+tks.innerHTML = D.tickers.map(t=>`<span class="tk" data-t="${t}">${t} · ${names[t].replace(" Inc.","").replace(" Corp.","")}</span>`).join("");
 
 function draw(t){
   active = t;
   document.querySelectorAll(".tk").forEach(el=>el.classList.toggle("active", el.dataset.t===t));
-  document.getElementById("tklabel").textContent = t + " · last " + D.series[t].last;
+  document.getElementById("tklabel").textContent = names[t] + " · " + t + " · last $" + D.series[t].last.toFixed(2);
   const s = D.series[t], H = s.hist.length, F = s.fc.length;
   const labels = [...Array(H).keys()].map(i=>"-"+(H-i)+"d").concat(["now"], s.fc.map((_,i)=>"+"+(i+1)+"d"));
   const hist  = s.hist.concat([s.last], Array(F).fill(null));
