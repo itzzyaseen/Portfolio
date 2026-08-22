@@ -604,7 +604,7 @@
     document.querySelectorAll('.dash .bar').forEach(function(b,i){
       setTimeout(function(){ b.style.height = b.getAttribute('data-h')+'%'; }, i*90);
     });
-    document.querySelectorAll('.dash .val').forEach(countUp);
+    document.querySelectorAll('.dash .val[data-count]').forEach(countUp);
   }
 
   function runInside(scope){
