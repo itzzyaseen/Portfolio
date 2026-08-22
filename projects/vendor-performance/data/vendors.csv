@@ -1,0 +1,121 @@
+vendor_id,vendor_name,category,region,onboarded_date
+V2000,Vendor-2000,IT Services,North,2020-02-29
+V2001,Vendor-2001,Logistics,South,2023-08-06
+V2002,Vendor-2002,IT Services,North,2021-01-30
+V2003,Vendor-2003,Facilities,East,2023-01-16
+V2004,Vendor-2004,Marketing,West,2024-03-02
+V2005,Vendor-2005,Marketing,East,2023-04-13
+V2006,Vendor-2006,Facilities,West,2023-03-13
+V2007,Vendor-2007,Facilities,South,2021-02-27
+V2008,Vendor-2008,Marketing,South,2022-08-15
+V2009,Vendor-2009,Facilities,East,2022-10-24
+V2010,Vendor-2010,Logistics,South,2021-11-11
+V2011,Vendor-2011,Raw Material,Central,2020-03-01
+V2012,Vendor-2012,IT Services,Central,2023-12-30
+V2013,Vendor-2013,Facilities,East,2020-11-11
+V2014,Vendor-2014,Facilities,West,2024-04-06
+V2015,Vendor-2015,IT Services,North,2024-01-31
+V2016,Vendor-2016,IT Services,North,2020-01-31
+V2017,Vendor-2017,Logistics,South,2023-03-28
+V2018,Vendor-2018,IT Services,South,2022-10-11
+V2019,Vendor-2019,Marketing,South,2021-01-04
+V2020,Vendor-2020,Facilities,East,2023-07-24
+V2021,Vendor-2021,Marketing,West,2020-06-27
+V2022,Vendor-2022,Marketing,East,2021-02-01
+V2023,Vendor-2023,Marketing,East,2024-02-27
+V2024,Vendor-2024,Logistics,North,2023-04-03
+V2025,Vendor-2025,IT Services,South,2020-06-28
+V2026,Vendor-2026,Logistics,Central,2020-08-18
+V2027,Vendor-2027,Logistics,Central,2021-02-15
+V2028,Vendor-2028,IT Services,North,2020-04-22
+V2029,Vendor-2029,IT Services,North,2020-10-19
+V2030,Vendor-2030,Logistics,Central,2022-07-03
+V2031,Vendor-2031,Marketing,North,2020-01-12
+V2032,Vendor-2032,Raw Material,East,2021-04-04
+V2033,Vendor-2033,Facilities,Central,2021-05-17
+V2034,Vendor-2034,Facilities,West,2024-04-02
+V2035,Vendor-2035,Marketing,East,2024-04-07
+V2036,Vendor-2036,Logistics,South,2023-09-14
+V2037,Vendor-2037,IT Services,West,2021-07-01
+V2038,Vendor-2038,IT Services,West,2022-04-23
+V2039,Vendor-2039,Raw Material,Central,2022-03-17
+V2040,Vendor-2040,Raw Material,East,2023-10-08
+V2041,Vendor-2041,Facilities,Central,2023-04-08
+V2042,Vendor-2042,Raw Material,West,2023-12-21
+V2043,Vendor-2043,IT Services,North,2022-05-31
+V2044,Vendor-2044,Raw Material,South,2024-01-10
+V2045,Vendor-2045,Marketing,West,2023-04-04
+V2046,Vendor-2046,Raw Material,North,2023-03-28
+V2047,Vendor-2047,Raw Material,West,2022-11-24
+V2048,Vendor-2048,Logistics,South,2021-06-21
+V2049,Vendor-2049,Logistics,South,2022-08-31
+V2050,Vendor-2050,IT Services,East,2021-07-24
+V2051,Vendor-2051,Logistics,Central,2022-11-05
+V2052,Vendor-2052,Raw Material,Central,2021-02-11
+V2053,Vendor-2053,Marketing,East,2023-07-02
+V2054,Vendor-2054,Raw Material,North,2022-07-03
+V2055,Vendor-2055,Facilities,Central,2023-02-10
+V2056,Vendor-2056,Marketing,Central,2020-12-20
+V2057,Vendor-2057,Facilities,West,2023-06-20
+V2058,Vendor-2058,Facilities,West,2023-07-08
+V2059,Vendor-2059,Facilities,East,2020-08-20
+V2060,Vendor-2060,IT Services,North,2021-07-14
+V2061,Vendor-2061,Raw Material,North,2022-12-20
+V2062,Vendor-2062,IT Services,North,2023-10-29
+V2063,Vendor-2063,Facilities,Central,2023-03-25
+V2064,Vendor-2064,Raw Material,North,2022-01-24
+V2065,Vendor-2065,Marketing,East,2021-04-24
+V2066,Vendor-2066,Logistics,South,2023-12-26
+V2067,Vendor-2067,Logistics,North,2023-10-31
+V2068,Vendor-2068,Facilities,Central,2023-12-05
+V2069,Vendor-2069,Facilities,North,2021-05-02
+V2070,Vendor-2070,Facilities,Central,2021-11-29
+V2071,Vendor-2071,IT Services,West,2021-01-25
+V2072,Vendor-2072,Logistics,West,2024-03-07
+V2073,Vendor-2073,IT Services,North,2023-10-19
+V2074,Vendor-2074,Raw Material,Central,2020-10-04
+V2075,Vendor-2075,Raw Material,East,2021-01-30
+V2076,Vendor-2076,Marketing,East,2022-06-02
+V2077,Vendor-2077,Marketing,West,2021-10-26
+V2078,Vendor-2078,Facilities,South,2022-01-05
+V2079,Vendor-2079,Logistics,South,2021-08-11
+V2080,Vendor-2080,Logistics,South,2022-12-14
+V2081,Vendor-2081,Raw Material,East,2023-12-07
+V2082,Vendor-2082,Facilities,West,2024-01-07
+V2083,Vendor-2083,Facilities,South,2021-12-29
+V2084,Vendor-2084,IT Services,South,2023-08-17
+V2085,Vendor-2085,Logistics,Central,2023-01-15
+V2086,Vendor-2086,IT Services,East,2020-11-11
+V2087,Vendor-2087,Facilities,Central,2023-06-24
+V2088,Vendor-2088,Marketing,South,2021-07-14
+V2089,Vendor-2089,Marketing,South,2022-10-01
+V2090,Vendor-2090,Raw Material,South,2023-02-27
+V2091,Vendor-2091,Logistics,East,2024-02-18
+V2092,Vendor-2092,Marketing,West,2024-02-26
+V2093,Vendor-2093,Logistics,East,2023-07-08
+V2094,Vendor-2094,IT Services,South,2022-03-20
+V2095,Vendor-2095,Marketing,Central,2021-10-02
+V2096,Vendor-2096,Raw Material,East,2021-12-06
+V2097,Vendor-2097,Logistics,South,2024-03-01
+V2098,Vendor-2098,Raw Material,North,2020-11-24
+V2099,Vendor-2099,Logistics,East,2022-04-19
+V2100,Vendor-2100,IT Services,West,2022-12-23
+V2101,Vendor-2101,Marketing,Central,2020-02-06
+V2102,Vendor-2102,IT Services,South,2022-10-12
+V2103,Vendor-2103,Marketing,North,2021-02-20
+V2104,Vendor-2104,Raw Material,Central,2021-03-25
+V2105,Vendor-2105,Facilities,East,2022-09-21
+V2106,Vendor-2106,Facilities,North,2020-01-15
+V2107,Vendor-2107,Raw Material,North,2020-09-07
+V2108,Vendor-2108,Logistics,East,2021-12-28
+V2109,Vendor-2109,Marketing,West,2022-07-23
+V2110,Vendor-2110,Raw Material,South,2020-06-23
+V2111,Vendor-2111,Facilities,South,2021-08-01
+V2112,Vendor-2112,Raw Material,West,2021-05-07
+V2113,Vendor-2113,Facilities,Central,2022-05-05
+V2114,Vendor-2114,IT Services,East,2021-04-25
+V2115,Vendor-2115,Marketing,East,2020-01-03
+V2116,Vendor-2116,IT Services,South,2022-04-28
+V2117,Vendor-2117,Facilities,North,2023-09-19
+V2118,Vendor-2118,Raw Material,North,2022-07-24
+V2119,Vendor-2119,Raw Material,Central,2021-08-02

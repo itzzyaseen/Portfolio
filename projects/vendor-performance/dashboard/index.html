@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Vendor Performance — Dashboard · M. Yaseen Jakati</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/projects/dashboard.css"/>
+<script src="/projects/vendor/chart.umd.js"></script>
+<script src="/projects/vendor-performance/dashboard/data.js"></script>
+</head>
+<body>
+<div class="topbar"><div class="wrap topbar-in">
+  <a class="back" href="/">← Back to portfolio</a>
+  <span class="badge">Procurement · CS-02</span>
+</div></div>
+
+<div class="wrap head">
+  <span class="eyebrow">// Live dashboard</span>
+  <h1>Vendor Performance Analysis</h1>
+  <p>Every supplier scored on a weighted model — 50% delivery reliability, 35% quality, 15% cost efficiency — so procurement can renegotiate or replace the weak ones with evidence.</p>
+  <br/><span class="note">Sample dataset (synthetic, 120 vendors · 3,481 purchase orders) — swap in your real figures</span>
+</div>
+
+<div class="wrap">
+  <div class="kpis" id="kpis"></div>
+  <div class="grid">
+    <div class="panel wide">
+      <h3>Top vendors by overall score <span class="sub">weighted 0–100</span></h3>
+      <div class="canvas-box"><canvas id="top"></canvas></div>
+    </div>
+    <div class="panel">
+      <h3>Score components — leaders <span class="sub">delivery vs quality</span></h3>
+      <div class="canvas-box sm"><canvas id="components"></canvas></div>
+    </div>
+    <div class="panel">
+      <h3>Average score by region <span class="sub">rollup</span></h3>
+      <div class="canvas-box sm"><canvas id="region"></canvas></div>
+    </div>
+  </div>
+</div>
+
+<footer><div class="wrap f">
+  <span>Built by M. Yaseen Jakati · SQL → Power BI</span>
+  <span>Synthetic sample data</span>
+</div></footer>
+
+<script>
+const D = window.DASH, A="#1B6B54", A2="#2f9174", AM="#D9932B", BR="#B24127", INK="#6B7178";
+Chart.defaults.font.family = "JetBrains Mono, monospace";
+Chart.defaults.font.size = 11; Chart.defaults.color = INK;
+
+const kpi = [
+  ["Vendors scored", D.kpis.vendors, ""], ["Avg on-time", D.kpis.avg_ontime+"%", "pos"],
+  ["Avg defect", D.kpis.avg_defect+"%", "neg"], ["Purchase orders", D.kpis.pos.toLocaleString(), ""],
+  ["Total spend", "₹"+(D.kpis.spend/1e6).toFixed(1)+"M", ""], ["Avg score", D.kpis.avg_score, ""],
+];
+document.getElementById("kpis").innerHTML = kpi.map(k =>
+  `<div class="kpi"><div class="lab">${k[0]}</div><div class="val ${k[2]}">${k[1]}</div></div>`).join("");
+
+new Chart(document.getElementById("top"), {type:"bar", data:{labels:D.top.map(v=>v.name),
+  datasets:[{data:D.top.map(v=>v.score), backgroundColor:A, borderRadius:5}]},
+  options:{indexAxis:"y",responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},
+  scales:{x:{min:60,max:100,grid:{color:"#15181b10"}},y:{grid:{display:false}}}}});
+
+new Chart(document.getElementById("components"), {type:"bar", data:{labels:D.top.map(v=>v.name),
+  datasets:[
+   {label:"Delivery", data:D.top.map(v=>v.delivery), backgroundColor:A, borderRadius:3},
+   {label:"Quality",  data:D.top.map(v=>v.quality),  backgroundColor:A2, borderRadius:3}
+  ]},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{boxWidth:10}}},
+  scales:{y:{min:0,max:100,grid:{color:"#15181b10"}},x:{grid:{display:false}}}}});
+
+new Chart(document.getElementById("region"), {type:"radar", data:{labels:D.by_region.map(r=>r.name),
+  datasets:[{data:D.by_region.map(r=>r.value), borderColor:A, backgroundColor:"#1b6b5426",
+   pointBackgroundColor:A, borderWidth:2}]},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},
+  scales:{r:{suggestedMin:50,suggestedMax:90,grid:{color:"#15181b12"},
+   angleLines:{color:"#15181b12"},pointLabels:{font:{size:10}}}}}});
+</script>
+</body>
+</html>

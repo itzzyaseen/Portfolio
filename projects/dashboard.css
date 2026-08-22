@@ -1,0 +1,66 @@
+:root{
+  --bg:#E9EBE7; --paper:#F4F5F2; --surface:#FBFBFA;
+  --ink:#15181B; --ink-2:#3C424A; --ink-soft:#6B7178;
+  --line:#15181b14; --line-strong:#15181b24;
+  --accent:#1B6B54; --accent-deep:#0F4D3B; --accent-2:#2f9174;
+  --amber:#D9932B; --brick:#B24127; --grid:24px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Inter",system-ui,sans-serif;color:var(--ink);background:var(--bg);
+  line-height:1.55;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),
+    linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:var(--grid) var(--grid);
+  -webkit-mask-image:radial-gradient(ellipse 120% 80% at 50% 0%,#000 45%,transparent 100%);
+          mask-image:radial-gradient(ellipse 120% 80% at 50% 0%,#000 45%,transparent 100%);opacity:.9}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
+.mono{font-family:"JetBrains Mono",monospace}
+h1,h2,h3{font-family:"Space Grotesk",sans-serif;font-weight:600;letter-spacing:-.01em;line-height:1.1}
+a{color:inherit}
+
+.topbar{border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--bg) 85%,transparent);
+  backdrop-filter:blur(8px);position:sticky;top:0;z-index:20}
+.topbar-in{display:flex;align-items:center;justify-content:space-between;height:58px}
+.back{font-family:"JetBrains Mono";font-size:12.5px;color:var(--ink-2);display:inline-flex;
+  align-items:center;gap:8px;transition:.2s}
+.back:hover{color:var(--accent)}
+.badge{font-family:"JetBrains Mono";font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--accent);background:#1b6b5416;padding:5px 11px;border-radius:7px;font-weight:600}
+
+.head{padding:40px 0 8px}
+.eyebrow{font-family:"JetBrains Mono";font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--accent);font-weight:600}
+.head h1{font-size:clamp(26px,4vw,38px);margin-top:12px}
+.head p{color:var(--ink-2);margin-top:12px;max-width:70ch;font-size:15px}
+.note{display:inline-block;margin-top:14px;font-family:"JetBrains Mono";font-size:11.5px;
+  color:#a9711d;background:#d9932b1c;border:1px solid #d9932b33;border-radius:7px;padding:5px 11px}
+
+.kpis{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin:26px 0 8px}
+@media(max-width:860px){.kpis{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:480px){.kpis{grid-template-columns:repeat(2,1fr)}}
+.kpi{background:var(--surface);border:1px solid var(--line-strong);border-radius:12px;padding:15px}
+.kpi .lab{font-family:"JetBrains Mono";font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink-soft)}
+.kpi .val{font-family:"Space Grotesk";font-weight:700;font-size:23px;margin-top:6px;line-height:1}
+.kpi .val.pos{color:var(--accent)}
+.kpi .val.neg{color:var(--brick)}
+
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:22px 0 60px}
+@media(max-width:820px){.grid{grid-template-columns:1fr}}
+.panel{background:var(--surface);border:1px solid var(--line-strong);border-radius:14px;padding:20px}
+.panel.wide{grid-column:1 / -1}
+.panel h3{font-size:15px;display:flex;align-items:center;justify-content:space-between}
+.panel .sub{font-family:"JetBrains Mono";font-size:10.5px;color:var(--ink-soft);font-weight:400;
+  text-transform:uppercase;letter-spacing:.06em}
+.canvas-box{position:relative;height:240px;margin-top:14px}
+.canvas-box.sm{height:200px}
+.tickers{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+.tk{font-family:"JetBrains Mono";font-size:12px;padding:6px 12px;border:1px solid var(--line-strong);
+  border-radius:8px;cursor:pointer;transition:.15s;background:var(--paper)}
+.tk:hover{border-color:var(--accent)}
+.tk.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+footer{border-top:1px solid var(--line);padding:22px 0 44px}
+footer .f{font-family:"JetBrains Mono";font-size:12px;color:var(--ink-soft);
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}

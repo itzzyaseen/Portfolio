@@ -1,0 +1,16 @@
+supplier_id,supplier_name,country,category
+SUP100,Apex Logistics,China,Components
+SUP101,Peak Logistics,India,Components
+SUP102,Metro Logistics,Vietnam,Consumables
+SUP103,Summit Traders,Germany,Components
+SUP104,Vertex Supplies,Vietnam,Packaging
+SUP105,Delta Logistics,USA,Consumables
+SUP106,Grand Distributors,USA,Raw Material
+SUP107,Prime Supplies,USA,Packaging
+SUP108,Hexa Distributors,India,Consumables
+SUP109,Union Distributors,China,Packaging
+SUP110,Cedar Traders,Germany,Electronics
+SUP111,Nova Industries,Germany,Raw Material
+SUP112,Orbit Supplies,India,Components
+SUP113,Blue Industries,Germany,Electronics
+SUP114,Iron Industries,India,Raw Material

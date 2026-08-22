@@ -1,0 +1,37 @@
+// ===========================================================================
+// Supply Chain — Power BI DAX measures
+// Assumes a calculated column on 'orders':
+//   OTIF Flag = IF(orders[delivered_date] <= orders[promised_date]
+//                  && orders[qty_delivered] >= orders[qty_ordered], 1, 0)
+// ===========================================================================
+
+Total Orders = COUNTROWS ( orders )
+
+On-Time % =
+DIVIDE (
+    CALCULATE ( COUNTROWS ( orders ), orders[delivered_date] <= orders[promised_date] ),
+    [Total Orders]
+)
+
+In-Full % =
+DIVIDE (
+    CALCULATE ( COUNTROWS ( orders ), orders[qty_delivered] >= orders[qty_ordered] ),
+    [Total Orders]
+)
+
+OTIF % =
+DIVIDE ( CALCULATE ( COUNTROWS ( orders ), orders[OTIF Flag] = 1 ), [Total Orders] )
+
+// Prior-month OTIF via time intelligence (needs a Date table marked as such)
+OTIF % LM =
+CALCULATE ( [OTIF %], DATEADD ( 'Date'[Date], -1, MONTH ) )
+
+OTIF MoM (pts) = ( [OTIF %] - [OTIF % LM] ) * 100
+
+Inventory Turnover =
+DIVIDE ( SUM ( inventory[units_sold] ),
+         AVERAGEX ( inventory, ( inventory[opening_stock] + inventory[closing_stock] ) / 2 ) )
+
+Stockout Flags = CALCULATE ( COUNTROWS ( inventory ), inventory[below_reorder] = 1 )
+
+Spend at Risk = SUMX ( orders, orders[qty_ordered] * RELATED ( products[unit_cost] ) )

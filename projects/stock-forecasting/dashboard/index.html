@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Stock Forecasting — Dashboard · M. Yaseen Jakati</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/projects/dashboard.css"/>
+<script src="/projects/vendor/chart.umd.js"></script>
+<script src="/projects/stock-forecasting/dashboard/data.js"></script>
+</head>
+<body>
+<div class="topbar"><div class="wrap topbar-in">
+  <a class="back" href="/">← Back to portfolio</a>
+  <span class="badge">Forecasting · CS-03</span>
+</div></div>
+
+<div class="wrap head">
+  <span class="eyebrow">// Live dashboard</span>
+  <h1>Stock Forecasting Application</h1>
+  <p>Historical close prices with a 30-day forward forecast and a 95% confidence band. Pick a ticker to redraw — the band widens with horizon, exactly as uncertainty should.</p>
+  <br/><span class="note">Sample dataset (synthetic prices, 2,088 rows · 4 tickers) — see fetch_real_data.py to load live data</span>
+</div>
+
+<div class="wrap">
+  <div class="kpis" id="kpis"></div>
+  <div class="grid">
+    <div class="panel wide">
+      <h3>Price &amp; forecast <span class="sub" id="tklabel"></span></h3>
+      <div class="tickers" id="tickers"></div>
+      <div class="canvas-box"><canvas id="chart"></canvas></div>
+    </div>
+  </div>
+</div>
+
+<footer><div class="wrap f">
+  <span>Built by M. Yaseen Jakati · SQL → Power BI Forecast</span>
+  <span>Synthetic sample data</span>
+</div></footer>
+
+<script>
+const D = window.DASH, A="#1B6B54", AM="#D9932B", INK="#6B7178";
+Chart.defaults.font.family = "JetBrains Mono, monospace";
+Chart.defaults.font.size = 11; Chart.defaults.color = INK;
+
+const kpi = [
+  ["Tickers", D.kpis.tickers, ""], ["Rows", D.kpis.rows.toLocaleString(), ""],
+  ["Horizon", D.kpis.horizon+"d", "pos"], ["Confidence", D.kpis.conf+"%", ""],
+  ["Span", D.kpis.span, ""], ["Model", "Exp. smooth", ""],
+];
+document.getElementById("kpis").innerHTML = kpi.map(k =>
+  `<div class="kpi"><div class="lab">${k[0]}</div><div class="val ${k[2]}">${k[1]}</div></div>`).join("");
+
+let chart, active = D.tickers[0];
+const tks = document.getElementById("tickers");
+tks.innerHTML = D.tickers.map(t=>`<span class="tk" data-t="${t}">${t}</span>`).join("");
+
+function draw(t){
+  active = t;
+  document.querySelectorAll(".tk").forEach(el=>el.classList.toggle("active", el.dataset.t===t));
+  document.getElementById("tklabel").textContent = t + " · last " + D.series[t].last;
+  const s = D.series[t], H = s.hist.length, F = s.fc.length;
+  const labels = [...Array(H).keys()].map(i=>"-"+(H-i)+"d").concat(["now"], s.fc.map((_,i)=>"+"+(i+1)+"d"));
+  const hist  = s.hist.concat([s.last], Array(F).fill(null));
+  const fc    = Array(H).fill(null).concat([s.last], s.fc);
+  const upper = Array(H).fill(null).concat([s.last], s.upper);
+  const lower = Array(H).fill(null).concat([s.last], s.lower);
+  const data = {labels, datasets:[
+    {label:"Upper 95%", data:upper, borderColor:"transparent", backgroundColor:"#1b6b5416",
+     pointRadius:0, fill:"+1"},
+    {label:"Lower 95%", data:lower, borderColor:"transparent", backgroundColor:"#1b6b5416",
+     pointRadius:0, fill:false},
+    {label:"Actual", data:hist, borderColor:A, borderWidth:2.5, pointRadius:0, tension:.2},
+    {label:"Forecast", data:fc, borderColor:A, borderDash:[5,4], borderWidth:2.5, pointRadius:0, tension:.2},
+  ]};
+  if(chart){chart.data=data; chart.update();}
+  else chart = new Chart(document.getElementById("chart"), {type:"line", data,
+    options:{responsive:true,maintainAspectRatio:false,interaction:{intersect:false,mode:"index"},
+    plugins:{legend:{labels:{boxWidth:10,filter:i=>["Actual","Forecast"].includes(i.text)}}},
+    scales:{y:{grid:{color:"#15181b10"}},
+      x:{grid:{display:false},ticks:{maxTicksLimit:10,autoSkip:true}}}}});
+}
+tks.addEventListener("click", e=>{ if(e.target.dataset.t) draw(e.target.dataset.t); });
+draw(active);
+</script>
+</body>
+</html>

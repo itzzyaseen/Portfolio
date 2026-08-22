@@ -1,0 +1,36 @@
+// ===========================================================================
+// Vendor Performance — Power BI DAX measures
+// Model: vendors 1-* purchase_orders 1-1 deliveries
+// ===========================================================================
+
+Delivery Score =
+100 * DIVIDE (
+    CALCULATE ( COUNTROWS ( deliveries ),
+        FILTER ( deliveries, RELATED ( purchase_orders[promised_date] ) >= deliveries[delivered_date] ) ),
+    COUNTROWS ( deliveries )
+)
+
+Defect Rate =
+DIVIDE ( SUM ( deliveries[rejected_qty] ), SUM ( purchase_orders[qty_ordered] ) )
+
+Quality Score = 100 * ( 1 - [Defect Rate] )
+
+// Cost efficiency: cheaper share of wallet ranks higher (0–30 pt spread)
+Cost Score =
+VAR Ranked = RANKX ( ALL ( vendors[vendor_id] ), [Total Spend],, ASC, DENSE )
+VAR N = DISTINCTCOUNT ( vendors[vendor_id] )
+RETURN 100 - 30 * DIVIDE ( Ranked - 1, N - 1 )
+
+Total Spend = SUM ( purchase_orders[order_value] )
+
+Overall Score =
+0.50 * [Delivery Score] + 0.35 * [Quality Score] + 0.15 * [Cost Score]
+
+Vendor Rank = RANKX ( ALL ( vendors[vendor_id] ), [Overall Score],, DESC, DENSE )
+
+Vendor Tier =
+SWITCH ( TRUE (),
+    [Overall Score] >= 85, "Preferred",
+    [Overall Score] >= 70, "Approved",
+    "Review / Replace"
+)

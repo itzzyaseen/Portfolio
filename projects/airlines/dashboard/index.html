@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Airlines Data Analysis — Dashboard · M. Yaseen Jakati</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/projects/dashboard.css"/>
+<script src="/projects/vendor/chart.umd.js"></script>
+<script src="/projects/airlines/dashboard/data.js"></script>
+</head>
+<body>
+<div class="topbar"><div class="wrap topbar-in">
+  <a class="back" href="/">← Back to portfolio</a>
+  <span class="badge">Aviation · CS-04</span>
+</div></div>
+
+<div class="wrap head">
+  <span class="eyebrow">// Live dashboard</span>
+  <h1>Airlines Data Analysis</h1>
+  <p>On-time performance across carriers, departure hours and routes — what actually drives arrival delays, pulled from a cleaned flights table.</p>
+  <br/><span class="note">Sample dataset (synthetic, 15,000 flights) — representative sample of a larger source</span>
+</div>
+
+<div class="wrap">
+  <div class="kpis" id="kpis"></div>
+  <div class="grid">
+    <div class="panel">
+      <h3>Flight status <span class="sub">arrival</span></h3>
+      <div class="canvas-box sm"><canvas id="status"></canvas></div>
+    </div>
+    <div class="panel">
+      <h3>Avg arrival delay by carrier <span class="sub">minutes</span></h3>
+      <div class="canvas-box sm"><canvas id="carrier"></canvas></div>
+    </div>
+    <div class="panel wide">
+      <h3>Avg delay by departure hour <span class="sub">delays build through the day</span></h3>
+      <div class="canvas-box"><canvas id="hour"></canvas></div>
+    </div>
+  </div>
+</div>
+
+<footer><div class="wrap f">
+  <span>Built by M. Yaseen Jakati · SQL → Power BI</span>
+  <span>Synthetic sample data</span>
+</div></footer>
+
+<script>
+const D = window.DASH, A="#1B6B54", A2="#2f9174", AM="#D9932B", BR="#B24127", INK="#6B7178";
+Chart.defaults.font.family = "JetBrains Mono, monospace";
+Chart.defaults.font.size = 11; Chart.defaults.color = INK;
+
+const kpi = [
+  ["Flights", D.kpis.flights.toLocaleString(), ""], ["On-time", D.kpis.ontime_pct+"%", "pos"],
+  ["Avg delay", D.kpis.avg_delay+"m", ""], ["Cancelled", D.kpis.cancel_pct+"%", "neg"],
+  ["Carriers", D.kpis.carriers, ""], ["Routes", D.kpis.routes, ""],
+];
+document.getElementById("kpis").innerHTML = kpi.map(k =>
+  `<div class="kpi"><div class="lab">${k[0]}</div><div class="val ${k[2]}">${k[1]}</div></div>`).join("");
+
+new Chart(document.getElementById("status"), {type:"doughnut", data:{labels:["On-time","Delayed","Cancelled"],
+  datasets:[{data:[D.status.ontime,D.status.delayed,D.status.cancelled],
+   backgroundColor:[A,AM,BR], borderWidth:0}]},
+  options:{responsive:true,maintainAspectRatio:false,cutout:"60%",
+  plugins:{legend:{position:"right",labels:{boxWidth:10,padding:10}}}}});
+
+new Chart(document.getElementById("carrier"), {type:"bar", data:{labels:D.by_carrier.map(c=>c.name),
+  datasets:[{data:D.by_carrier.map(c=>c.value),
+   backgroundColor:D.by_carrier.map(c=>c.value>20?BR:c.value>14?AM:A2), borderRadius:4}]},
+  options:{indexAxis:"y",responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},
+  scales:{x:{grid:{color:"#15181b10"}},y:{grid:{display:false}}}}});
+
+new Chart(document.getElementById("hour"), {type:"line", data:{labels:D.by_hour.hours.map(h=>h+":00"),
+  datasets:[{data:D.by_hour.delay, borderColor:A, backgroundColor:"#1b6b5420", fill:true,
+   tension:.3, pointRadius:2, pointBackgroundColor:A, borderWidth:2.5}]},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},
+  scales:{y:{grid:{color:"#15181b10"},title:{display:true,text:"avg delay (min)"}},
+   x:{grid:{display:false}}}}});
+</script>
+</body>
+</html>

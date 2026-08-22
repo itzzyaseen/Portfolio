@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Supply Chain Performance — Dashboard · M. Yaseen Jakati</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/projects/dashboard.css"/>
+<script src="/projects/vendor/chart.umd.js"></script>
+<script src="/projects/supply-chain/dashboard/data.js"></script>
+</head>
+<body>
+<div class="topbar"><div class="wrap topbar-in">
+  <a class="back" href="/">← Back to portfolio</a>
+  <span class="badge">Supply Chain · CS-01</span>
+</div></div>
+
+<div class="wrap head">
+  <span class="eyebrow">// Live dashboard</span>
+  <h1>Supply Chain Performance &amp; Inventory</h1>
+  <p>On-time-in-full delivery, inventory turnover and stockout risk across suppliers and product categories — the Power BI model rebuilt as an interactive web view.</p>
+  <br/><span class="note">Sample dataset (synthetic, 2,093 orders · 720 inventory snapshots) — swap in your real figures</span>
+</div>
+
+<div class="wrap">
+  <div class="kpis" id="kpis"></div>
+  <div class="grid">
+    <div class="panel wide">
+      <h3>OTIF % by month <span class="sub">target 95%</span></h3>
+      <div class="canvas-box"><canvas id="otif"></canvas></div>
+    </div>
+    <div class="panel">
+      <h3>Products below reorder point <span class="sub">stockout risk</span></h3>
+      <div class="canvas-box sm"><canvas id="stockouts"></canvas></div>
+    </div>
+    <div class="panel">
+      <h3>Spend at risk by category <span class="sub">order value</span></h3>
+      <div class="canvas-box sm"><canvas id="cats"></canvas></div>
+    </div>
+  </div>
+</div>
+
+<footer><div class="wrap f">
+  <span>Built by M. Yaseen Jakati · SQL → Power BI</span>
+  <span>Synthetic sample data</span>
+</div></footer>
+
+<script>
+const D = window.DASH, A="#1B6B54", A2="#2f9174", AM="#D9932B", BR="#B24127", INK="#6B7178";
+Chart.defaults.font.family = "JetBrains Mono, monospace";
+Chart.defaults.font.size = 11;
+Chart.defaults.color = INK;
+
+const kpi = [
+  ["OTIF rate", D.kpis.otif+"%", "pos"], ["On-time", D.kpis.ontime+"%", ""],
+  ["Orders", D.kpis.orders.toLocaleString(), ""], ["Stockout flags", D.kpis.stockouts, "neg"],
+  ["Inv. turnover", D.kpis.turnover+"x", ""], ["Suppliers", D.kpis.suppliers, ""],
+];
+document.getElementById("kpis").innerHTML = kpi.map(k =>
+  `<div class="kpi"><div class="lab">${k[0]}</div><div class="val ${k[2]}">${k[1]}</div></div>`).join("");
+
+new Chart(document.getElementById("otif"), {type:"line", data:{labels:D.months, datasets:[
+  {label:"OTIF %", data:D.otif, borderColor:A, backgroundColor:"#1b6b5420", fill:true, tension:.35,
+   pointRadius:3, pointBackgroundColor:A, borderWidth:2.5},
+  {label:"Target", data:D.months.map(()=>D.target), borderColor:AM, borderDash:[5,5],
+   pointRadius:0, borderWidth:1.5, fill:false}
+]}, options:{responsive:true,maintainAspectRatio:false,
+  scales:{y:{min:70,max:100,grid:{color:"#15181b10"}},x:{grid:{display:false}}},
+  plugins:{legend:{labels:{boxWidth:10}}}}});
+
+new Chart(document.getElementById("stockouts"), {type:"bar", data:{labels:D.months, datasets:[
+  {data:D.stockouts, backgroundColor:D.stockouts.map(v=>v>25?BR:v>15?AM:A2), borderRadius:4}]},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},
+  scales:{y:{grid:{color:"#15181b10"}},x:{grid:{display:false}}}}});
+
+new Chart(document.getElementById("cats"), {type:"doughnut", data:{labels:D.categories.map(c=>c.name),
+  datasets:[{data:D.categories.map(c=>c.value), backgroundColor:[A,A2,AM,BR,"#7d8a92"], borderWidth:0}]},
+  options:{responsive:true,maintainAspectRatio:false,cutout:"58%",
+  plugins:{legend:{position:"right",labels:{boxWidth:10,padding:8}}}}});
+</script>
+</body>
+</html>

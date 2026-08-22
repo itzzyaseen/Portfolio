@@ -1,0 +1,30 @@
+// ===========================================================================
+// Airlines — Power BI DAX measures
+// Suggested calculated column on 'flights':
+//   Status = SWITCH ( TRUE (),
+//              flights[cancelled] = 1, "Cancelled",
+//              flights[arr_delay_min] <= 15, "On-Time",
+//              "Delayed" )
+// ===========================================================================
+
+Total Flights = COUNTROWS ( flights )
+
+On-Time % =
+DIVIDE (
+    CALCULATE ( COUNTROWS ( flights ),
+        flights[cancelled] = 0, flights[arr_delay_min] <= 15 ),
+    [Total Flights]
+)
+
+Cancelled % =
+DIVIDE ( CALCULATE ( COUNTROWS ( flights ), flights[cancelled] = 1 ), [Total Flights] )
+
+Avg Arrival Delay =
+CALCULATE ( AVERAGE ( flights[arr_delay_min] ), flights[cancelled] = 0 )
+
+Carrier Punctuality Rank =
+RANKX ( ALL ( flights[carrier] ), [Avg Arrival Delay],, ASC, DENSE )
+
+// Route volume share (place origin+dest on the axis)
+Route Share % =
+DIVIDE ( [Total Flights], CALCULATE ( [Total Flights], ALL ( flights[origin], flights[dest] ) ) )
