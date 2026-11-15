@@ -236,6 +236,86 @@
     html{scroll-behavior:auto}
   }
   :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+
+  /* Reference-inspired opening hero */
+  .hero-reference{padding:66px 0 36px}
+  .hero-reference>.wrap{max-width:1760px;padding-left:clamp(28px,4vw,72px);padding-right:clamp(28px,4vw,72px)}
+  .hero-reference .hero-grid{grid-template-columns:1.08fr .92fr;gap:34px;align-items:center}
+  .hero-kicker{display:flex;align-items:center;gap:10px;margin:0 0 45px;color:#147a78;font:500 12px "JetBrains Mono",monospace;letter-spacing:.13em}
+  .hero-status{width:8px;height:8px;border-radius:50%;background:#58a88b;box-shadow:0 0 0 5px #58a88b24}
+  .hero-reference h1{font:700 clamp(52px,5.25vw,102px)/1.02 "Space Grotesk",sans-serif;letter-spacing:-.065em;color:#1e2927}
+  .hero-reference h1 .accent{color:#277e7a}
+  .hero-intro{max-width:620px;margin-top:34px;color:#66716e;font-size:clamp(16px,1.3vw,21px);line-height:1.85}
+  .hero-reference .hero-cta{align-items:center;gap:36px;margin-top:34px}
+  .hero-reference .btn{border-radius:4px;padding:18px 23px;font-size:14px}
+  .hero-reference .btn-primary{gap:32px}
+  .hero-contact{font:600 13px "Space Grotesk",sans-serif;color:#202b29}
+  .hero-contact span{margin-left:9px;color:#287c78}
+  .hero-reference .hero-meta{display:flex;align-items:center;gap:25px;margin-top:72px}
+  .hero-meta>div{display:flex;align-items:center;gap:11px}
+  .hero-meta strong{font:700 25px "Space Grotesk",sans-serif;letter-spacing:-.05em;color:#1d2927}
+  .hero-meta span{font-size:11px;line-height:1.35;color:#82908a}
+  .hero-meta>i{width:1px;height:38px;background:#ccd5ce}
+  .insight-visual{height:590px;position:relative;background:radial-gradient(ellipse at 52% 47%,#dbece3 0,#edf2eb 41%,transparent 69%);overflow:hidden}
+  .insight-orbit{position:absolute;left:51%;top:45%;border:1px solid #bdd5c8;border-radius:50%;transform:translate(-50%,-50%)}
+  .orbit-a{width:78%;height:48%;transform:translate(-50%,-50%) rotate(-23deg)}
+  .orbit-b{width:61%;height:69%;transform:translate(-50%,-50%) rotate(42deg);border-color:#c9d9cd}
+  .insight-core{position:absolute;left:51%;top:45%;width:185px;height:185px;transform:translate(-50%,-50%);display:flex;flex-direction:column;justify-content:center;align-items:center;border-radius:50%;color:#fff;background:linear-gradient(145deg,#2e8079,#1b5e5a);box-shadow:0 22px 48px #397f6b33,inset -8px -10px 20px #16494555}
+  .insight-core:before{content:"";position:absolute;inset:0;border-radius:50%;opacity:.17;background-image:linear-gradient(#fff3 1px,transparent 1px),linear-gradient(90deg,#fff3 1px,transparent 1px);background-size:16px 16px}
+  .insight-core span,.insight-core b{position:relative}
+  .insight-core span{font-size:40px;line-height:1;color:#b9e4d1}
+  .insight-core b{margin-top:9px;text-align:center;font:500 9px/1.5 "JetBrains Mono",monospace;letter-spacing:.14em}
+  .visual-caption{position:absolute;color:#587067;font:500 9px "JetBrains Mono",monospace;letter-spacing:.08em}
+  .visual-caption span{display:inline-block;width:7px;height:7px;border-radius:50%;background:#27827c;margin-right:10px}
+  .caption-top{left:13%;top:10%}
+  .caption-bottom{right:11%;bottom:22%}
+  .caption-bottom span{margin:0 0 0 9px;background:#ed9b74}
+  .visual-chip{position:absolute;z-index:2;padding:16px 20px;background:#fff;border:1px solid #e2e9e1;border-radius:5px;box-shadow:0 12px 26px #314b3b0b;color:#384741;font:500 11px "JetBrains Mono",monospace}
+  .visual-chip b{margin-left:12px;color:#287c78;font-size:13px}
+  .sql-chip{left:10%;top:25%}
+  .bi-chip{right:5%;top:44%}
+  .ai-chip{left:17%;bottom:31%}
+  .visual-report{position:absolute;right:2%;bottom:3%;width:270px;padding:15px 17px 12px;background:#ffffffdf;border:1px solid #e1e7df;border-radius:5px;box-shadow:0 14px 35px #314c3a10}
+  .report-head,.report-foot{display:flex;justify-content:space-between;color:#7b8982;font:500 8px "JetBrains Mono",monospace;letter-spacing:.06em}
+  .report-head b{color:#287c78;font-size:8px}
+  .report-bars{height:91px;display:flex;align-items:end;gap:8px;margin:8px 0;border-bottom:1px solid #dce3db;background:repeating-linear-gradient(to bottom,transparent 0 21px,#e9eee8 22px)}
+  .report-bars i{flex:1;height:var(--bar,40%);border-radius:2px 2px 0 0;background:linear-gradient(to top,#4b9381,#b1d8bc)}
+  .report-bars i:nth-child(2n){background:linear-gradient(to top,#d98766,#f1be98)}
+  .report-bars i:nth-child(1){--bar:35%}.report-bars i:nth-child(2){--bar:54%}.report-bars i:nth-child(3){--bar:43%}.report-bars i:nth-child(4){--bar:69%}.report-bars i:nth-child(5){--bar:59%}.report-bars i:nth-child(6){--bar:83%}.report-bars i:nth-child(7){--bar:72%}.report-bars i:nth-child(8){--bar:96%}
+  .report-foot{font-size:7px}
+  @media(max-width:1000px){
+    .hero-reference .hero-grid{grid-template-columns:1fr;gap:14px}
+    .hero-reference>.wrap{max-width:850px}
+    .hero-kicker{margin-bottom:28px}
+    .hero-reference h1{font-size:clamp(51px,9.5vw,82px)}
+    .hero-intro{max-width:670px}
+    .hero-reference .hero-meta{margin-top:45px}
+    .insight-visual{height:470px;margin-top:6px}
+  }
+  @media(max-width:560px){
+    .hero-reference{padding-top:45px}
+    .hero-reference>.wrap{padding-left:21px;padding-right:21px}
+    .hero-kicker{font-size:9px;margin-bottom:25px}
+    .hero-reference h1{font-size:clamp(43px,12vw,62px)}
+    .hero-intro{font-size:14px;line-height:1.75;margin-top:24px}
+    .hero-reference .hero-cta{gap:22px;margin-top:25px}
+    .hero-reference .btn{padding:15px 16px;font-size:12px}
+    .hero-reference .btn-primary{gap:18px}
+    .hero-reference .hero-meta{gap:12px;margin-top:40px;justify-content:space-between}
+    .hero-meta>div{gap:6px}
+    .hero-meta strong{font-size:18px}
+    .hero-meta span{font-size:8px}
+    .hero-meta>i{height:29px}
+    .insight-visual{height:340px;margin:10px -13px 0}
+    .insight-core{width:128px;height:128px}
+    .insight-core span{font-size:30px}
+    .sql-chip,.bi-chip,.ai-chip{padding:10px 12px;font-size:9px}
+    .sql-chip{left:4%;top:20%}.bi-chip{right:1%;top:43%}.ai-chip{left:8%;bottom:24%}
+    .caption-top{left:8%;top:8%}.caption-bottom{right:3%;bottom:14%}
+    .visual-report{width:186px;padding:10px 11px 8px;right:1%;bottom:0}
+    .report-bars{height:54px;gap:5px}
+  }
+
 </style>
 </head>
 <body>
@@ -257,62 +337,41 @@
 <main id="top">
 
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero hero-reference">
     <div class="wrap hero-grid">
-      <div>
-        <span class="avail"><span class="pulse"></span> Open to Data Analyst / BI opportunities</span>
-        <h1>Mohammed Yaseen <span class="accent">Jakati</span></h1>
-        <p class="role">Data Analyst · <b>SQL</b> · <b>Business Intelligence</b> · <b>AI Automation</b></p>
-        <p class="lead">Data Analyst with 4+ years of experience at Elpis Systems India, working across SQL reporting, production support, data analysis and business intelligence. I investigate reporting issues, validate business data and build AI-powered workflows for data cleaning and report generation.</p>
-        <p class="mono" style="margin-top:16px;font-size:12px;color:var(--ink-soft)">Karnataka, India · Insurance analytics · SQL reporting · AI automation</p>
+      <div class="hero-copy">
+        <p class="hero-kicker"><span class="hero-status"></span> DATA ANALYST · KARNATAKA, INDIA</p>
+        <h1>Turning complex<br>data into <span class="accent">clear<br>decisions.</span></h1>
+        <p class="hero-intro">I’m Mohammed Yaseen Jakati. I work across SQL reporting, business intelligence, and AI-powered automation to make everyday data work more reliable.</p>
         <div class="hero-cta">
-          <a href="#work" class="btn btn-primary">View projects →</a>
-          <a href="https://www.linkedin.com/in/itzzyaseen" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn ↗</a>
+          <a href="#work" class="btn btn-primary">Explore my work <span aria-hidden="true">↓</span></a>
+          <a href="#contact" class="hero-contact">Get in touch <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="hero-meta">
+          <div><strong>4+</strong><span>years in data<br>&amp; reporting</span></div>
+          <i aria-hidden="true"></i>
+          <div><strong>SQL</strong><span>analysis &amp;<br>production support</span></div>
+          <i aria-hidden="true"></i>
+          <div><strong>AI</strong><span>workflow<br>automation</span></div>
         </div>
       </div>
-
-      <!-- live-ish dashboard -->
-      <div class="dash" aria-hidden="true">
-        <div class="dash-top">
-          <span class="dash-title">BI reporting snapshot</span>
-          <span class="dash-dots"><i></i><i></i><i></i></span>
-        </div>
-        <div class="kpi-row">
-          <div class="kpi">
-            <div class="lab">Core stack</div>
-            <div class="val" style="font-size:22px">SQL + AI</div>
-            <div class="delta">T-SQL · BI · Automation</div>
-          </div>
-          <div class="kpi">
-            <div class="lab">Experience</div>
-            <div class="val" data-count="4" data-suffix="+" data-dec="0">0+</div>
-            <div class="delta">years in analytics</div>
-          </div>
-        </div>
-        <div class="chart-box">
-          <div class="lab"><span>Reporting workflow</span><span>SQL → AI → BI</span></div>
-          <div class="bars">
-            <div class="bar" data-h="42"></div>
-            <div class="bar" data-h="58"></div>
-            <div class="bar" data-h="49"></div>
-            <div class="bar" data-h="88"></div>
-            <div class="bar" data-h="71"></div>
-            <div class="bar" data-h="94"></div>
-          </div>
+      <div class="insight-visual" aria-hidden="true">
+        <div class="insight-orbit orbit-a"></div>
+        <div class="insight-orbit orbit-b"></div>
+        <div class="visual-caption caption-top"><span></span> FROM RAW DATA</div>
+        <div class="insight-core"><span>✳</span><b>INSIGHT<br>FOUND</b></div>
+        <div class="visual-caption caption-bottom">TO BETTER DECISIONS <span></span></div>
+        <div class="visual-chip sql-chip">SQL <b>↗</b></div>
+        <div class="visual-chip bi-chip">BI <b>▥</b></div>
+        <div class="visual-chip ai-chip">AI <b>✳</b></div>
+        <div class="visual-report">
+          <div class="report-head"><span>REPORT QUALITY</span><b>● LIVE</b></div>
+          <div class="report-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="report-foot"><span>VALIDATE</span><span>DELIVER</span></div>
         </div>
       </div>
     </div>
   </section>
-
-  <!-- STAT STRIP -->
-  <div class="strip">
-    <div class="wrap strip-in">
-      <div class="stat reveal"><div class="n" data-count="4" data-suffix="+">0+</div><div class="c">Years of experience</div></div>
-      <div class="stat reveal"><div class="n" data-count="6">0</div><div class="c">AI reporting workflows</div></div>
-      <div class="stat reveal"><div class="n" data-count="3">0</div><div class="c">BI platforms</div></div>
-      <div class="stat reveal"><div class="n" data-count="1">0</div><div class="c">Insurance domain</div></div>
-    </div>
-  </div>
 
   <!-- WORK -->
   <section id="work">
